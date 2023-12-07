@@ -70,12 +70,12 @@
         <p>Belum punya akun? <a style="display: inline-block; color: blue;" href="#" class="register-link" onclick="showRegistrationForm()"> Daftar di sini </a></p> 
 
         <!-- Form registrasi (awalnya tersembunyi) -->
-        <form action="registrasiberhasil.html" method="post" id="registrationForm" style="display: none;">
+        <form id="registrationForm" style="display: none;">
             <h2>Registrasi</h2>
             <input type="text" name="newUsername" placeholder="Username" required>
             <input type="password" name="newPassword" placeholder="Password" required>
             <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
-            <button type="submit" class="login-btn">Daftar</button>
+            <a href="registrasiberhasil.html"><button type="button" class="btn btn-primary">Submit</button></a>
         </form>
     </div>
     
