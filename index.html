@@ -62,11 +62,11 @@
 
     <div class="login-container">
         <h2>Login</h2>
-        <div>
+        <form method="post" onsubmit="return handleLogin()">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
-            <a href="dashboard.html"><button type="submit" class="login-btn">Login</button></a>
-        </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
         <p>Belum punya akun? <a style="display: inline-block; color: blue;" href="#" class="register-link" onclick="showRegistrationForm()"> Daftar di sini </a></p> 
 
         <!-- Form registrasi (awalnya tersembunyi) -->
@@ -78,6 +78,19 @@
             <button type="submit" class="login-btn">Daftar</button>
         </form>
     </div>
+    
+    <script>
+    function handleLogin() {
+        // Assuming you have validated the form fields here
+        
+        // Redirect to the desired dashboard.html page
+        window.location.href = 'dashboard.html';
+
+        // Return false to prevent the form from actually submitting
+        return false;
+    }
+    </script>
+
 
     <script>
         function showRegistrationForm() {
