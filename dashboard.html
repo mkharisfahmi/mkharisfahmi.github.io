@@ -1,84 +1,163 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <?php
-    // Mulai atau periksa sesi di sini (sesuaikan dengan kebutuhan)
-    session_start();
-    if (!isset($_SESSION["username"])) {
-    // Pengguna belum login, arahkan ke halaman login
-    header("Location: login.html");
-    exit();
-    }
-    ?>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Monitoring</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
+
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+        background: url(gambar/raiden.png) no-repeat center fixed;
+        background-size: cover;
         }
-
-        .dashboard-container {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 300px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        p {
-            color: #555;
-        }
-
-        .logout-btn {
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-top: 15px;
-        }
-
-        .logout-btn:hover {
-            background-color: #c0392b;
+        h3 {
+            color: black;
+            -webkit-text-fill-color: aliceblue;
+            -webkit-text-stroke-width: 1px;
         }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style="background-color: rgb(40, 114, 224)">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="gambar/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top" />
+          Monitoring
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="dashboard.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="dashboard2.html">Video</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <img src="gambar/logout.png" alt="logout button" width="30" height="30" onclick="logout()" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar -->
 
-    <div class="dashboard-container">
-        <h2>Selamat Datang, <?php echo $_SESSION["username"] ?>!</h2>
-        <p>Ini adalah dashboard Anda.</p>
-        
-        <button class="logout-btn" onclick="logout()">Logout</button>
-        
-    </div>
+    <!-- table -->
+    <section id="table" style="padding-top: 6rem">
+      <div class="container">
+        <div class="col py-3 mt-3">
+          <h3 class="text-style text-center" style="box-sizing: border-box;">Data Penggunaan</h3>
+          <div class="table-responsive-md mt-3 ">
+            <table class="table table-bordered table-dark table-striped text-style2">
+              <thead>
+                <div class="row text-center">
+                  <th class="col">NO</th>
+                  <th class="col">Nama</th>
+                  <th class="col">UID</th>
+                  <th class="col">Waktu</th>
+                </div>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>User A</td>
+                  <td>6ED43H48</td>
+                  <td>2023-12-05 10:32:09</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>User A</td>
+                  <td>6ED43H48</td>
+                  <td>2023-12-05 10:32:09</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>User A</td>
+                  <td>6ED43H48</td>
+                  <td>2023-12-05 10:32:09</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>User A</td>
+                  <td>6ED43H48</td>
+                  <td>2023-12-05 10:32:09</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>User A</td>
+                  <td>6ED43H48</td>
+                  <td>2023-12-05 10:32:09</td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td>User A</td>
+                  <td>6ED43H48</td>
+                  <td>2023-12-05 10:32:09</td>
+                </tr>
+                <tr>
+                  <th scope="row">7</th>
+                  <td>User A</td>
+                  <td>6ED43H48</td>
+                  <td>2023-12-05 10:32:09</td>
+                </tr>
+                <tr>
+                  <th scope="row">8</th>
+                  <td>User A</td>
+                  <td>6ED43H48</td>
+                  <td>2023-12-05 10:32:09</td>
+                </tr>
+                <tr>
+                  <th scope="row">9</th>
+                  <td>User A</td>
+                  <td>6ED43H48</td>
+                  <td>2023-12-05 10:32:09</td>
+                </tr>
+              </tbody>
+                <tr>
+                  <th scope="row">10</th>
+                  <td>User A</td>
+                  <td>6ED43H48</td>
+                  <td>2023-12-05 10:32:09</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>  
+      </div>
+      <!-- gelombang -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#2872E0"
+          fill-opacity="1"
+          d="M0,128L26.7,154.7C53.3,181,107,235,160,245.3C213.3,256,267,224,320,192C373.3,160,427,128,480,144C533.3,160,587,224,640,250.7C693.3,277,747,267,800,245.3C853.3,224,907,192,960,176C1013.3,160,1067,160,1120,186.7C1173.3,213,1227,267,1280,261.3C1333.3,256,1387,192,1413,160L1440,128L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"
+        ></path>
+      </svg>
+    </section>
+    <!-- end of table -->
+
+    <!-- footer -->
+    <footer style="background-color: rgb(40, 114, 224)" class="text-white fw-bold text-center pb-3">
+      <p>Created with <i class="bi bi-heart-fill text-danger"></i> by <a href="https://www.instagram.com/mkfahm1" class="text-white fw-bold">Muh. Kharis Fahmi</a></p>
+    </footer>
+    <!-- end of footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script>
-        function logout() {
-            // Logika logout, misalnya mengarahkan ke halaman logout atau membersihkan sesi
-            
-            alert("Anda telah logout.");
-            // Anda telah logout.
-            window.location.href = "index.html"; // uncomment jika menggunakan file logout.php
-        }
+      function logout() {
+        // Logika logout, misalnya mengarahkan ke halaman logout atau membersihkan sesi
+
+        alert("Anda telah logout.");
+        // Anda telah logout.
+        window.location.href = "index.html"; // uncomment jika menggunakan file logout.php
+      }
     </script>
-
-</body>
+  </body>
 </html>
-
